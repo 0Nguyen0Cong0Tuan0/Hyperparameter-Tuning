@@ -162,3 +162,141 @@ where $s$ is the **reduction factor** (e.g., 2 means we keep 50% each round)
 $$R_i = R_{\min} \times s^i$$
 
 where $R_{\min}$ is the initial resource and $i$ is the round index
+
+---
+
+## **Types of hyperparameters**
+
+**Hyperparameters** can be broadly classified into **several categories**:
+
+✅ Model-specific hyperparameters
+✅ Regularization hyperparameters
+✅ Training optimization hyperparameters
+✅ Feature selection & dimensionality reduction hyperparameters
+✅ Data preprocessing hyperparameters
+
+### 1️⃣ **Model-specific hyperparameters**
+
+These hyperparameters **depend on the type of model used**.
+
+**🔹 Neural Networks (Deep Learning)**
+
+<center>
+
+| **Hyperparameter** | **Description** |
+| --- | --- |
+| **Number of hidden layers** | More layers help learn complex patterns, but too many may cause overfitting |
+| **Number of neurons per layer** | More neurons improve capacity but increase computation and overfitting risk | 
+| **Learning rate (`lr`)** | Controls how much weights are updated during training. **Too high $\rightarrow$ unstable training, Too low $\rightarrow$ slow convergence** | 
+| **Batch size** | Number of samples used for a single update during training. **Small $\rightarrow$ more noise, Large $\rightarrow$ smoother updates** |
+| **Momentum** | Help stabilize gradient updates by considering previous updates **(common values: 0.0, 0.99)** | 
+| **Weight initialization** | Methods like **Xavier**, **He** or **random initialization** affect training stability |
+| **Dropout rate** | Prevents overfitting by randomly dropping neurons during training | 
+| **Activation function** | **ReLU**, **Sigmoid**, **Tanh**, etc. determine how neurons fire and influence learning | 
+| **Optimizer** | **Adam**, **SGD**, **RMSprop**, **Adagrad**, etc., control how weights are updated |
+
+</center>
+
+**🔹 Support Vector Machines (SVM)**
+
+<center>
+
+| **Hyperparameter** | **Description** |
+| --- | --- |
+| **C (Regularization parameter)** | Control trade-off between maximizing margin and minimizing misclassification |
+| **Gamma** | Determines how much influence a training example has (**low: smooth boundary**, **high: complex boundary**) |
+| **Kernel type** | Specifies the function used to transform data (**`linear`**, **`rbf`**, **`poly`**, **`sigmoid`**) | 
+| **Degree (for polynomial kernel)** | Defines the degree of the polynomial kernel |
+
+</center>
+
+**🔹Decision trees and Random forest**
+
+<center>
+
+| **Hyperparameter** | **Description** |
+| --- | --- |
+| **`max_depth`** |	Limits how deep the tree can grow to avoid overfitting. |
+| **`min_samples_split`** | Minimum samples required to split an internal node. |
+| **`min_samples_leaf`** |	Minimum number of samples required to be a leaf node. |
+| **`criterion`** |	Function to measure the quality of a split (e.g., **`gini`**, **`entropy`**). |
+| **`max_features`** |	Number of features considered when looking for the best split. |
+
+**Additional for Random forest**
+| **Hyperparameter** | **Description** |
+| --- | --- |
+| **`n_estimators`** |	Number of trees in the forest. |
+| **`bootstrap`** |	Whether to use bootstrapped datasets when training trees. |
+
+</center>
+
+**🔹Gradient boosting / XGBoost / LightGBM / CatBoost**
+
+<center>
+
+| **Hyperparameter** | **Description** |
+| --- | --- |
+| **`n_estimators`** |	Number of boosting rounds (trees) |
+| **`learning_rate (eta)`** |	Shrinks the contribution of each tree (small value needs more trees) |
+| **`max_depth`** |	Depth of individual trees |
+| **`min_child_weight`** |	Minimum sum of instance weights needed in a child node |
+| **`subsample`**	 | Fraction of samples used per boosting round (**prevents overfitting**) |
+| **`colsample_bytree`** |	Fraction of features used per tree (adds randomness) |
+| **`lambda (L2 regularization)`** | Controls the weight of L2 penalty to reduce overfitting |
+| **`alpha (L1 regularization)`**	 | Adds L1 penalty to weights, making model sparse |
+
+</center>
+
+### **2️⃣ Regularization Hyperparameters**
+
+These hyperparameters **control model complexity** to prevent overfitting.
+
+<center>
+
+| **Hyperparameter** | **Description** |
+| ---- | ---- |
+| **`L1 Regularization (Lasso)`**	|Encourages sparsity by penalizing large coefficients (**`alpha`** in Lasso) |
+| **`L2 Regularization (Ridge)`** |	Shrinks coefficients to reduce overfitting (**`lambda`** in Ridge Regression) |
+| **`ElasticNet (L1 + L2)`** | Combines **L1 & L2** for better generalization |
+
+</center>
+
+### **3️⃣ Optimization & Training hyperparameters**
+
+These affect **how the model learns**.
+
+
+<center>
+
+| **Hyperparameter** | **Description** |
+| ---- | ---- |
+| **`Gradient clipping`** | Prevents exploding gradients by capping gradient values |
+| **`Early stopping`**  | Stops training when validation loss stops improving |
+| **`Batch size`** | Larger batches stabilize training but increase memory usage |
+| **`Number of epochs`** | How many times the model sees the entire dataset during training |
+
+</center>
+
+### **4️⃣ Feature selection & Dimensionality reduction hyperparameters**
+
+<center>
+
+| **Hyperparameter** | **Description** |
+| --- | --- |
+| **`Number of principal components (PCA)`** | Number of features kept after dimensionality reduction |
+| **`Variance threshold`** | Removes low-variance features |
+| **`K (for K-best feature selection)`** | Number of top features selected based on correlation or importance |
+
+</center>
+
+### **5️⃣ Data preprocessing hyperparameters**
+
+<center>
+
+| **Hyperparameter** | **Description** |
+| --- | --- |
+| **`Imputation strategy`** |How missing values are handled (mean, median, most_frequent) |
+| **`Scaling method`** | StandardScaler (z-score normalization) vs. MinMaxScaler (0-1 scaling) |
+| **`Encoding method`** | One-hot encoding vs. label encoding |
+
+</center>
