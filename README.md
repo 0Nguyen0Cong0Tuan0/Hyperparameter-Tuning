@@ -1,4 +1,5 @@
-<p align="center"><strong><span style="font-size: 35px;">Hyperparameter Tuning</span></strong></p>
+<h1 align="center">Hyperparameter Tuning</h1>
+
 
 ### **Grid Search**
 **Grid Search** is a method of hyperparameter tuning that involves exhaustively searching through a predefined set of hyperparameter values. It systematically evaluates all possible combinations to find the optimal set of hyperparameters.
